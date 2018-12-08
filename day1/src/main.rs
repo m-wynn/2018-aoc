@@ -1,7 +1,7 @@
 use std::env;
 use std::fs::File;
 use std::io::prelude::*;
-use std::collections::BTreeSet;
+use std::collections::HashSet;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -24,7 +24,7 @@ fn part_1(input: &str) -> i32 {
 
 fn part_2(input: &str) -> Option<i32> {
     let num_iterator = input.lines().map(|s| s.parse::<i32>().unwrap());
-    let mut seen = BTreeSet::new();
+    let mut seen = HashSet::new();
     let mut acc = 0;
     for i in num_iterator.cycle() {
         acc += i;
